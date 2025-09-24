@@ -1,0 +1,164 @@
+{
+  "user_id": "default",
+  "items": [
+    {
+      "id": "1f4b146f-8661-4bcf-8e92-3c0751804904",
+      "content": "用戶喜歡使用記憶系統來管理知識",
+      "memory_type": "personal",
+      "importance": 3,
+      "created_at": "2025-09-24T01:19:35.043993",
+      "last_accessed": "2025-09-24T01:19:35.043993",
+      "access_count": 0,
+      "metadata": {
+        "source": "user",
+        "stored_at": "2025-09-24T01:19:32.200931",
+        "verified": false
+      },
+      "tags": [
+        "personal_fact"
+      ]
+    },
+    {
+      "id": "3333e1df-0ef5-4458-9e33-76e376354b18",
+      "content": "用戶喜歡使用記憶系統來管理知識，並且關注系統性能和穩定性",
+      "memory_type": "personal",
+      "importance": 3,
+      "created_at": "2025-09-24T01:25:12.796050",
+      "last_accessed": "2025-09-24T01:25:12.796050",
+      "access_count": 0,
+      "metadata": {
+        "source": "user",
+        "stored_at": "2025-09-24T01:25:10.268301",
+        "verified": false
+      },
+      "tags": [
+        "personal_fact"
+      ]
+    },
+    {
+      "id": "55134396-8df1-4be2-87a9-47e0394136d9",
+      "content": "我是一名軟件開發者，專精於AI和機器學習領域，目前在開發本地化AI助理系統",
+      "memory_type": "personal",
+      "importance": 3,
+      "created_at": "2025-09-24T01:35:31.103828",
+      "last_accessed": "2025-09-24T01:35:31.103828",
+      "access_count": 0,
+      "metadata": {
+        "source": "user",
+        "stored_at": "2025-09-24T01:35:28.342488",
+        "verified": false
+      },
+      "tags": [
+        "personal_fact"
+      ]
+    },
+    {
+      "id": "1d04c7c8-da4a-453a-b240-a1b9ed92ad9e",
+      "content": "我偏好使用qwen3:latest作為主要對話模型，embeddinggemma:latest作為嵌入模型",
+      "memory_type": "personal",
+      "importance": 2,
+      "created_at": "2025-09-24T01:36:35.915157",
+      "last_accessed": "2025-09-24T01:36:35.915157",
+      "access_count": 0,
+      "metadata": {
+        "source": "user",
+        "stored_at": "2025-09-24T01:36:32.464460",
+        "verified": false
+      },
+      "tags": [
+        "personal_fact"
+      ]
+    },
+    {
+      "id": "24e9cadb-7939-40a4-bed5-799939f1e7b7",
+      "content": "我正在實現三階段AI助理演進：第一階段CLI核心系統已完成，包含記憶系統、RAG引擎、智能Agent",
+      "memory_type": "personal",
+      "importance": 3,
+      "created_at": "2025-09-24T01:37:14.123721",
+      "last_accessed": "2025-09-24T01:37:14.123721",
+      "access_count": 0,
+      "metadata": {
+        "source": "user",
+        "stored_at": "2025-09-24T01:37:10.563663",
+        "verified": false
+      },
+      "tags": [
+        "personal_fact"
+      ]
+    },
+    {
+      "id": "cb79dc8e-51f6-438f-be1e-6a3e8d20c114",
+      "content": "我重視系統性能和穩定性，喜歡模塊化設計和異步編程，偏好詳細的技術文檔",
+      "memory_type": "personal",
+      "importance": 2,
+      "created_at": "2025-09-24T01:38:18.514807",
+      "last_accessed": "2025-09-24T01:38:18.514807",
+      "access_count": 0,
+      "metadata": {
+        "source": "user",
+        "stored_at": "2025-09-24T01:38:15.102733",
+        "verified": false
+      },
+      "tags": [
+        "personal_fact"
+      ]
+    }
+  ],
+  "interaction_history": [
+    {
+      "id": "fd978962-f617-4876-baf6-5956cbc798a4",
+      "type": "conversation",
+      "details": {
+        "user_input": "你好，請介紹一下你的記憶功能",
+        "response_length": 1107,
+        "context": {
+          "confidence": 0.1,
+          "memory_context_used": true,
+          "query_type": "rag_query"
+        }
+      },
+      "timestamp": "2025-09-24T01:29:57.723546"
+    },
+    {
+      "id": "8726f31b-7934-4bc9-bc76-1b7e97a17a7b",
+      "type": "conversation",
+      "details": {
+        "user_input": "什麼是機器學習？",
+        "response_length": 20,
+        "context": {
+          "confidence": 0.0,
+          "memory_context_used": true,
+          "query_type": "optimized_rag_query",
+          "optimization_stats": {
+            "cache_operations": 2,
+            "retry_attempts": 0,
+            "batch_size": 1,
+            "parallel_tasks": 0
+          }
+        }
+      },
+      "timestamp": "2025-09-24T03:01:43.971423"
+    },
+    {
+      "id": "38cc3177-cde3-4802-aec3-fdb8c896a6f8",
+      "type": "conversation",
+      "details": {
+        "user_input": "什麼是機器學習？",
+        "response_length": 20,
+        "context": {
+          "confidence": 0.0,
+          "memory_context_used": true,
+          "query_type": "optimized_rag_query",
+          "optimization_stats": {
+            "cache_operations": 2,
+            "retry_attempts": 0,
+            "batch_size": 1,
+            "parallel_tasks": 0
+          }
+        }
+      },
+      "timestamp": "2025-09-24T03:02:58.628095"
+    }
+  ],
+  "last_saved": "2025-09-24T03:02:58.628204"
+}

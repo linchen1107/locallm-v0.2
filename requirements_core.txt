@@ -1,0 +1,42 @@
+# 核心必需依賴（避免路徑長度問題）
+fastapi>=0.104.0
+uvicorn[standard]>=0.24.0
+pydantic>=2.5.0
+pydantic-settings>=2.1.0
+
+# CLI和UI
+typer>=0.9.0
+rich>=13.7.0
+click>=8.1.0
+
+# 異步處理
+aiofiles>=23.2.0
+
+# 向量數據庫（簡化版）
+chromadb>=0.4.0
+numpy>=1.24.0
+
+# 基本文檔處理
+pypdf2>=3.0.0
+python-docx>=1.1.0
+beautifulsoup4>=4.12.0
+markdown>=3.5.0
+
+# Ollama集成
+ollama>=0.1.0
+httpx>=0.25.0
+
+# 數據處理
+pandas>=2.1.0
+openpyxl>=3.1.0
+
+# 安全相關
+python-jose[cryptography]>=3.3.0
+passlib[bcrypt]>=1.7.0
+
+# 日誌
+loguru>=0.7.0
+
+# 報告生成
+reportlab>=4.0.0
+

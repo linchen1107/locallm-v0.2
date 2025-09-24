@@ -1,0 +1,35 @@
+{
+  "entities": [
+    {
+      "id": "6897a2c7-4efd-425e-818a-0ce8520a9b3f",
+      "name": "Keras",
+      "entity_type": "PERSON",
+      "properties": {
+        "source": "text_extraction"
+      },
+      "created_at": "2025-09-24T01:51:21.542481",
+      "last_updated": "2025-09-24T01:51:21.542483"
+    },
+    {
+      "id": "3622fe42-cafc-44c7-b17a-e3677d1dcda0",
+      "name": "Principle",
+      "entity_type": "ORGANIZATION",
+      "properties": {
+        "source": "text_extraction"
+      },
+      "created_at": "2025-09-24T01:52:53.658998",
+      "last_updated": "2025-09-24T01:52:53.659000"
+    },
+    {
+      "id": "e0fe9578-f5e5-4328-8d0a-8d5f6ac11a6d",
+      "name": "Excel",
+      "entity_type": "PERSON",
+      "properties": {
+        "source": "text_extraction"
+      },
+      "created_at": "2025-09-24T02:25:29.956787",
+      "last_updated": "2025-09-24T02:25:29.956789"
+    }
+  ],
+  "last_saved": "2025-09-24T02:25:29.957037"
+}

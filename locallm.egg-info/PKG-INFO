@@ -1,0 +1,500 @@
+Metadata-Version: 2.4
+Name: locallm
+Version: 2.0.0
+Summary: 本地大語言模型智能助手 - 提供強大的本地AI能力
+Home-page: https://github.com/locallm/locallm
+Author: LocalLM Team
+Author-email: team@locallm.dev
+Project-URL: Bug Reports, https://github.com/locallm/locallm/issues
+Project-URL: Source, https://github.com/locallm/locallm
+Project-URL: Documentation, https://docs.locallm.dev
+Keywords: ai,llm,local,ollama,assistant,cli,automation
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Text Processing :: Linguistic
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: fastapi>=0.104.0
+Requires-Dist: uvicorn[standard]>=0.24.0
+Requires-Dist: pydantic>=2.5.0
+Requires-Dist: pydantic-settings>=2.1.0
+Requires-Dist: typer>=0.9.0
+Requires-Dist: rich>=13.7.0
+Requires-Dist: click>=8.1.0
+Requires-Dist: aiofiles>=23.2.0
+Requires-Dist: asyncio-mqtt>=0.16.0
+Requires-Dist: chromadb>=0.4.0
+Requires-Dist: sentence-transformers>=2.2.0
+Requires-Dist: numpy>=1.24.0
+Requires-Dist: unstructured[all-docs]>=0.11.0
+Requires-Dist: pypdf2>=3.0.0
+Requires-Dist: python-docx>=1.1.0
+Requires-Dist: python-pptx>=0.6.0
+Requires-Dist: beautifulsoup4>=4.12.0
+Requires-Dist: markdown>=3.5.0
+Requires-Dist: ollama>=0.1.0
+Requires-Dist: httpx>=0.25.0
+Requires-Dist: pandas>=2.1.0
+Requires-Dist: openpyxl>=3.1.0
+Requires-Dist: python-jose[cryptography]>=3.3.0
+Requires-Dist: passlib[bcrypt]>=1.7.0
+Requires-Dist: pytest>=7.4.0
+Requires-Dist: pytest-asyncio>=0.21.0
+Requires-Dist: pytest-mock>=3.12.0
+Requires-Dist: black>=23.11.0
+Requires-Dist: flake8>=6.1.0
+Requires-Dist: mypy>=1.7.0
+Requires-Dist: pre-commit>=3.6.0
+Requires-Dist: loguru>=0.7.0
+Requires-Dist: python-multipart>=0.0.6
+Requires-Dist: xlsxwriter>=3.1.0
+Requires-Dist: reportlab>=4.0.0
+Provides-Extra: dev
+Requires-Dist: pytest>=6.0; extra == "dev"
+Requires-Dist: pytest-cov>=2.0; extra == "dev"
+Requires-Dist: black>=21.0; extra == "dev"
+Requires-Dist: flake8>=3.8; extra == "dev"
+Requires-Dist: mypy>=0.800; extra == "dev"
+Provides-Extra: full
+Requires-Dist: jupyter>=1.0; extra == "full"
+Requires-Dist: matplotlib>=3.0; extra == "full"
+Requires-Dist: seaborn>=0.11; extra == "full"
+Requires-Dist: plotly>=5.0; extra == "full"
+Requires-Dist: pandas>=1.3; extra == "full"
+Requires-Dist: numpy>=1.20; extra == "full"
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: keywords
+Dynamic: project-url
+Dynamic: provides-extra
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# 個人AI知識庫管理系統
+
+一個基於本地大語言模型的智能知識庫管理和代理系統，支援多種文檔格式，提供RAG檢索和複雜任務執行功能。
+
+## ✨ 主要特性
+
+### 🧠 智能功能
+- **RAG知識檢索**: 基於向量相似度和關鍵詞的混合檢索系統
+- **智能代理**: 能夠執行複雜任務，包括代碼生成、文檔總結等
+- **多模型支援**: 整合Ollama的聊天、嵌入和代碼生成模型
+
+### 📚 文檔處理
+- **多格式支援**: PDF、Word、Markdown、Python、HTML、JSON、CSV等
+- **智能分塊**: 語義感知的文本分塊和向量化
+- **批量處理**: 支援目錄遞歸處理和並行處理
+
+### 🛠️ 工具系統
+- **文件操作**: 讀寫、創建、刪除、複製、移動文件
+- **代碼執行**: 安全沙箱中的Python、Bash、JavaScript執行
+- **代碼生成**: 根據需求自動生成各種語言的代碼
+- **文檔總結**: 自動生成文檔或目錄的結構化總結
+
+### 🔐 安全機制
+- **沙箱執行**: 隔離的代碼執行環境
+- **權限控制**: 細粒度的操作權限管理
+- **資源監控**: 實時監控內存和CPU使用
+- **安全審計**: 完整的操作日誌記錄
+
+## 🚀 快速開始
+
+### 1. 環境準備
+
+#### 安裝Ollama
+```bash
+# Linux/Mac
+curl -fsSL https://ollama.ai/install.sh | sh
+
+# Windows
+# 從 https://ollama.ai 下載安裝包
+```
+
+#### 下載必要模型
+```bash
+# 聊天模型
+ollama pull llama2
+
+# 嵌入模型
+ollama pull nomic-embed-text
+
+# 代碼模型
+ollama pull codellama
+```
+
+### 2. 安裝依賴
+
+```bash
+# 克隆或下載項目
+cd locallm
+
+# 安裝Python依賴
+pip install -r requirements.txt
+```
+
+### 3. 初始化系統
+
+```bash
+# 初始化AI助手
+python main.py init
+
+# 檢查系統狀態
+python main.py status
+```
+
+## 📖 使用指南
+
+### 基本命令
+
+#### 導入文檔到知識庫
+```bash
+# 導入單個文件
+python main.py ingest document.pdf
+
+# 導入整個目錄（遞歸）
+python main.py ingest ./my_documents --recursive
+
+# 導入多個路徑
+python main.py ingest file1.py dir1/ file2.md
+```
+
+#### 查詢知識庫
+```bash
+# 基本查詢
+python main.py query "如何實現神經網路？"
+
+# 限制結果數量和文件類型
+python main.py query "Python代碼範例" --max-results 3 --file-type .py
+
+# 不顯示來源信息
+python main.py query "總結文檔內容" --no-show-sources
+```
+
+#### 使用智能代理
+```bash
+# 執行複雜任務（會顯示執行計劃）
+python main.py agent "根據當前目錄的Python文件，生成一個README文檔"
+
+# 自動確認執行
+python main.py agent "分析data目錄中的CSV文件並生成總結報告" --auto
+```
+
+#### 搜索文檔
+```bash
+# 搜索相關文檔（不生成答案）
+python main.py search "機器學習算法" --limit 5
+
+# 按文件類型過濾
+python main.py search "API文檔" --file-type .md
+```
+
+#### 管理知識庫
+```bash
+# 查看可用工具
+python main.py tools
+
+# 移除特定文件
+python main.py remove path/to/file.pdf
+
+# 清空知識庫（需要確認）
+python main.py clear --yes
+```
+
+### 高級使用場景
+
+#### 1. 代碼開發輔助
+```bash
+# 生成神經網路訓練代碼
+python main.py agent "根據./research目錄的論文，創建一個PyTorch神經網路訓練腳本"
+
+# 代碼重構建議
+python main.py agent "分析./src目錄的Python代碼，提供重構建議並生成改進版本"
+```
+
+#### 2. 文檔處理和分析
+```bash
+# 生成項目文檔
+python main.py agent "掃描整個項目，生成完整的API文檔和使用說明"
+
+# 文獻總結
+python main.py agent "總結./papers目錄中的所有論文，生成研究報告"
+```
+
+#### 3. 數據分析
+```bash
+# CSV數據分析
+python main.py agent "分析./data目錄的CSV文件，生成數據洞察報告和可視化代碼"
+
+# 日誌分析
+python main.py agent "分析系統日誌文件，識別異常模式並生成監控腳本"
+```
+
+## ⚙️ 配置說明
+
+### 環境變量配置
+
+創建 `.env` 文件來自定義配置：
+
+```bash
+# Ollama配置
+OLLAMA_HOST=http://localhost:11434
+OLLAMA_CHAT_MODEL=llama2
+OLLAMA_EMBEDDING_MODEL=nomic-embed-text
+OLLAMA_CODE_MODEL=codellama
+
+# 存儲配置
+STORAGE_DATA_DIR=./data
+STORAGE_MAX_FILE_SIZE=104857600
+
+# Agent配置
+AGENT_ENABLE_CODE_EXECUTION=true
+AGENT_SANDBOX_ENABLED=true
+AGENT_MAX_EXECUTION_TIME=300
+
+# 安全配置
+SECURITY_SANDBOX_TIMEOUT=30
+SECURITY_LOG_LEVEL=INFO
+```
+
+### 模型配置
+
+#### 更換模型
+```bash
+# 在.env文件中設置
+OLLAMA_CHAT_MODEL=llama2:13b
+OLLAMA_EMBEDDING_MODEL=all-minilm
+OLLAMA_CODE_MODEL=codellama:7b-code
+```
+
+#### 模型參數調整
+```bash
+# 聊天模型參數
+OLLAMA_CHAT_TEMPERATURE=0.7
+OLLAMA_CHAT_MAX_TOKENS=2048
+
+# 代碼模型參數
+OLLAMA_CODE_TEMPERATURE=0.1
+```
+
+## 🛡️ 安全特性
+
+### 沙箱執行
+- 所有代碼在隔離環境中執行
+- 資源使用監控和限制
+- 文件系統訪問控制
+
+### 權限管理
+- 可配置的操作權限
+- 危險操作確認機制
+- 完整的操作審計日誌
+
+### 代碼安全
+- 靜態代碼分析
+- 危險函數檢測
+- 導入模塊限制
+
+## 📁 項目結構
+
+```
+locallm/
+├── config/                 # 配置模塊
+│   ├── settings.py         # 主配置管理
+│   └── security.py         # 安全配置
+├── core/                   # 核心功能
+│   ├── agent/              # 智能代理
+│   │   ├── tools.py        # 工具系統
+│   │   └── intelligent_agent.py  # 代理核心
+│   ├── cli/                # 命令行接口
+│   │   └── commands.py     # CLI命令
+│   ├── models/             # 模型管理
+│   │   └── ollama_client.py # Ollama客戶端
+│   ├── rag/                # RAG系統
+│   │   ├── document_processing.py  # 文檔處理
+│   │   └── retrieval_system.py     # 檢索系統
+│   ├── storage/            # 存儲管理
+│   │   └── vector_store.py # 向量數據庫
+│   └── utils/              # 工具函數
+│       └── security_framework.py   # 安全框架
+├── data/                   # 數據目錄
+│   ├── documents/          # 文檔存儲
+│   ├── knowledge_base/     # 知識庫
+│   └── vector_db/          # 向量數據庫
+├── tests/                  # 測試文件
+├── main.py                 # 主入口文件
+├── requirements.txt        # 依賴列表
+└── README.md              # 項目說明
+```
+
+## 🔧 開發和擴展
+
+### 添加新工具
+
+1. 在 `core/agent/tools.py` 中創建新的工具類：
+
+```python
+class MyCustomTool(BaseTool):
+    def __init__(self):
+        super().__init__(
+            name="my_tool",
+            description="我的自定義工具",
+            parameters={
+                "required": ["param1"],
+                "properties": {
+                    "param1": {"type": "string", "description": "參數描述"}
+                }
+            }
+        )
+    
+    async def execute(self, **kwargs) -> ToolResult:
+        # 實現工具邏輯
+        return ToolResult(True, data={"result": "success"})
+```
+
+2. 在工具註冊表中註冊：
+
+```python
+# 在 ToolRegistry._register_default_tools() 中添加
+self.register_tool(MyCustomTool())
+```
+
+### 自定義文檔解析器
+
+1. 繼承 `BaseDocumentParser` 類：
+
+```python
+class MyDocumentParser(BaseDocumentParser):
+    def can_parse(self, file_path: Path) -> bool:
+        return file_path.suffix.lower() == '.myformat'
+    
+    async def parse(self, file_path: Path) -> str:
+        # 實現解析邏輯
+        pass
+```
+
+2. 在文檔處理管道中註冊解析器。
+
+## 🐛 故障排除
+
+### 常見問題
+
+#### 1. Ollama連接失敗
+```bash
+# 檢查Ollama是否運行
+ollama list
+
+# 重啟Ollama服務
+# Linux/Mac: sudo systemctl restart ollama
+# Windows: 重啟Ollama應用
+```
+
+#### 2. 模型下載失敗
+```bash
+# 手動下載模型
+ollama pull llama2
+ollama pull nomic-embed-text
+ollama pull codellama
+
+# 檢查模型是否下載成功
+ollama list
+```
+
+#### 3. 內存不足
+```bash
+# 調整配置文件中的內存限制
+SECURITY_MAX_MEMORY_USAGE=1073741824  # 1GB
+
+# 或使用較小的模型
+OLLAMA_CHAT_MODEL=llama2:7b
+```
+
+#### 4. 文檔處理失敗
+```bash
+# 檢查文件格式是否支援
+python main.py tools
+
+# 檢查文件權限
+ls -la your_file.pdf
+
+# 檢查磁盤空間
+df -h
+```
+
+### 調試模式
+
+啟用調試模式獲取詳細日誌：
+
+```bash
+# 設置環境變量
+export DEBUG=true
+export SECURITY_LOG_LEVEL=DEBUG
+
+# 運行命令
+python main.py query "test" --verbose
+```
+
+## 📊 性能優化
+
+### 1. 向量數據庫優化
+- 調整塊大小和重疊參數
+- 使用更高效的嵌入模型
+- 實施定期數據庫清理
+
+### 2. 模型性能
+- 選擇適合硬件的模型大小
+- 調整並行處理數量
+- 實施模型緩存
+
+### 3. 資源管理
+- 監控內存使用
+- 調整執行超時時間
+- 實施資源限制
+
+## 🤝 貢獻指南
+
+1. Fork 項目
+2. 創建功能分支 (`git checkout -b feature/AmazingFeature`)
+3. 提交更改 (`git commit -m 'Add some AmazingFeature'`)
+4. 推送到分支 (`git push origin feature/AmazingFeature`)
+5. 開啟 Pull Request
+
+## 📄 許可證
+
+本項目採用 MIT 許可證 - 查看 [LICENSE](LICENSE) 文件了解詳情。
+
+## 🙏 致謝
+
+- [Ollama](https://ollama.ai/) - 本地大語言模型運行環境
+- [Chroma](https://www.trychroma.com/) - 向量數據庫
+- [FastAPI](https://fastapi.tiangolo.com/) - 高性能API框架
+- [Typer](https://typer.tiangolo.com/) - CLI框架
+- [Rich](https://rich.readthedocs.io/) - 終端美化
+
+## 📞 支援
+
+如果您遇到問題或有建議，請：
+
+1. 查看 [常見問題](#故障排除) 部分
+2. 搜索現有的 GitHub Issues
+3. 創建新的 Issue 並提供詳細信息
+
+---
+
+**享受您的個人AI助手！** 🎉
+
